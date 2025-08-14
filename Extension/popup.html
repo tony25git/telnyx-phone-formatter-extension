@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telnyx Phone Number Formatter</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Phone Number Formatter</h1>
+        
+        <div class="input-section">
+            <label for="phoneNumbers">Enter phone numbers (one per line):</label>
+            <textarea id="phoneNumbers" placeholder="Enter phone numbers here, one per line (any format with at least 10 digits)"></textarea>
+            <button class="copy-btn" id="copyBtn">Copy All Numbers</button>
+        </div>
+        
+        <div class="button-container" id="buttonContainer">
+            <button class="format-dash" id="formatDashBtn">888-888-8888</button>
+            <button class="format-space" id="formatSpaceBtn">888 888 8888</button>
+            <button class="format-range" id="formatRangeBtn">8888888888-8888</button>
+            <button class="format-plus-one" id="formatPlusOneBtn">+1</button>
+            <button class="format-one" id="formatOneBtn">1</button>
+            <button class="format-simple" id="formatSimpleBtn">Simple</button>
+        </div>
+        
+        <div class="control-buttons-row">
+            <button class="undo-btn" id="undoBtn">Undo</button>
+            <button class="clear-btn" id="clearBtn">Clear</button>
+        </div>
+        
+        <div class="custom-formats-section">
+            <div class="custom-formats-header">
+                <h2>Custom Formats</h2>
+                <button class="collapse-toggle" id="collapseToggle">+</button>
+            </div>
+            
+            <div class="custom-formats-content collapsed" id="customFormatsContent">
+                <div class="add-format-section">
+                <div class="input-group">
+                    <label for="formatTitle">Format Title:</label>
+                    <input type="text" id="formatTitle" placeholder="e.g., Dots Format">
+                </div>
+                
+                <div class="input-group">
+                    <label for="formatPattern">Format Pattern:</label>
+                    <input type="text" id="formatPattern" placeholder="e.g., XXX*XXX*XXXX or XXX*XXX*XXXX*XXXX">
+                    <small class="help-text">Use X for digits. <strong>10 X's</strong>: Individual formatting (no ranges). Example: XXX*XXX*XXXX. <strong>14+ X's</strong>: Smart range formatting. Example: XXX*XXX*XXXX*XXXX (ranges as 987*654*3210*3211). 20 X's: Full range format (XX/XXX/XXXXX/XX/XXX/XXXXX).</small>
+                </div>
+                
+                <button class="add-format-btn" id="addFormatBtn">Add Format</button>
+            </div>
+            
+            <div class="manage-formats-section" id="manageFormatsSection" style="display: none;">
+                <h3>Manage Custom Formats</h3>
+                <div class="format-management">
+                    <select id="customFormatsSelect">
+                        <option value="">Select a custom format...</option>
+                    </select>
+                    <div class="management-buttons">
+                        <button class="edit-format-btn" id="editFormatBtn">Edit</button>
+                        <button class="delete-format-btn" id="deleteFormatBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <div class="info-section">
+            <p><strong>Instructions:</strong></p>
+            <ul>
+                <li>Enter phone numbers in any format (with at least 10 digits)</li>
+                <li>Uses the rightmost 10 digits of each number</li>
+                <li><strong>888-888-8888</strong>: Dash format (with ranges)</li>
+                <li><strong>888 888 8888</strong>: Space format (with ranges)</li>
+                <li><strong>8888888888-8888</strong>: Range format</li>
+                <li><strong>+1</strong>: Add +1 prefix (no ranges)</li>
+                <li><strong>1</strong>: Add 1 prefix (no ranges)</li>
+                <li><strong>Simple</strong>: Plain 10-digit numbers (no ranges)</li>
+                <li><strong>Copy</strong>: Copy all numbers to clipboard</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

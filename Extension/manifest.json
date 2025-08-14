@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Telnyx Phone Number Formatter",
+  "version": "1.0",
+  "description": "Format phone numbers in multiple formats: dash format (888-888-8888), space format (888 888 8888), and range format (8888888888-8888)",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Telnyx Phone Number Formatter"
+  },
+  "icons": {
+    "16": "Icon.png",
+    "48": "Icon.png",
+    "128": "Icon.png"
+  }
+}
